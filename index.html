@@ -2,15 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self';
-             img-src * data: blob: file:;
-             media-src * blob:;
-             connect-src https://api.giphy.com https://media.giphy.com https://media0.giphy.com https://media1.giphy.com https://media2.giphy.com https://media3.giphy.com https://media4.giphy.com;
-             script-src 'self';
-             style-src 'self'">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GIF Search</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -66,7 +60,7 @@
       <button id="close-settings-btn" title="Close">&times;</button>
     </div>
     <p class="settings-hint">
-      Get a free GIPHY key at <span class="link-text">developers.giphy.com</span>
+      Get a free GIPHY key at <a class="link-text" href="https://developers.giphy.com" target="_blank">developers.giphy.com</a>
     </p>
     <label class="settings-label">
       GIPHY API Key
@@ -95,6 +89,6 @@
   <!-- Toast -->
   <div id="toast" class="hidden"></div>
 
-  <script src="renderer.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
