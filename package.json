@@ -1,0 +1,40 @@
+{
+  "name": "gif-search",
+  "version": "1.0.0",
+  "description": "Search and download GIFs from GIPHY",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "set CSC_IDENTITY_AUTO_DISCOVERY=false&& electron-builder --win"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^29.4.6",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.gifapp.search",
+    "productName": "GIF Search",
+    "asar": false,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "package.json",
+      "user-gifs/"
+    ],
+    "win": {
+      "target": [
+        { "target": "zip", "arch": ["x64"] }
+      ]
+    }
+  }
+}

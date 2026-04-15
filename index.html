@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+             img-src * data: blob: file:;
+             media-src * blob:;
+             connect-src https://api.giphy.com https://media.giphy.com https://media0.giphy.com https://media1.giphy.com https://media2.giphy.com https://media3.giphy.com https://media4.giphy.com;
+             script-src 'self';
+             style-src 'self'">
+  <link rel="stylesheet" href="styles.css">
+  <title>GIF Search</title>
+</head>
+<body>
+
+  <header>
+    <div id="main-tabs">
+      <button class="main-tab active" data-tab="giphy">GIPHY</button>
+      <button class="main-tab" data-tab="favorites">&#9829; Favorites</button>
+      <button class="main-tab" data-tab="local">My GIFs</button>
+    </div>
+    <button id="settings-btn" title="Settings">&#9881;</button>
+  </header>
+
+  <!-- GIPHY pane -->
+  <div id="pane-giphy" class="pane active">
+    <div id="search-bar">
+      <input type="text" id="search-input" placeholder="Search for GIFs..." autocomplete="off" spellcheck="false">
+      <button id="search-btn">Search</button>
+    </div>
+    <div id="status-bar"></div>
+    <main id="results-grid"></main>
+  </div>
+
+  <!-- Favorites pane -->
+  <div id="pane-favorites" class="pane">
+    <div id="favorites-bar">
+      <span id="favorites-status"></span>
+    </div>
+    <main id="favorites-grid"></main>
+  </div>
+
+  <!-- My GIFs pane -->
+  <div id="pane-local" class="pane">
+    <div id="upload-bar">
+      <button id="browse-btn">+ Add GIFs</button>
+      <span id="local-status"></span>
+      <input type="file" id="file-input" accept="image/gif" multiple hidden>
+    </div>
+    <div id="drop-zone">
+      <div id="drop-hint">
+        <div id="drop-icon">&#8659;</div>
+        <p>Drag &amp; drop GIF files here</p>
+        <p class="drop-sub">or click <strong>+ Add GIFs</strong> above</p>
+      </div>
+      <main id="local-grid"></main>
+    </div>
+  </div>
+
+  <!-- Settings drawer -->
+  <div id="settings-overlay" class="hidden"></div>
+  <aside id="settings-panel" class="hidden">
+    <div id="settings-header">
+      <h2>Settings</h2>
+      <button id="close-settings-btn" title="Close">&times;</button>
+    </div>
+    <p class="settings-hint">
+      Get a free GIPHY key at <span class="link-text">developers.giphy.com</span>
+    </p>
+    <label class="settings-label">
+      GIPHY API Key
+      <div class="key-input-row">
+        <input type="password" id="giphy-key-input" placeholder="Paste your GIPHY key">
+        <button class="show-key-btn" data-target="giphy-key-input">Show</button>
+      </div>
+    </label>
+    <button id="save-settings-btn">Save</button>
+    <p id="settings-status"></p>
+  </aside>
+
+  <!-- Preview modal -->
+  <div id="preview-modal" class="hidden">
+    <div id="preview-overlay"></div>
+    <div id="preview-container">
+      <button id="preview-close">&times;</button>
+      <div id="preview-img-wrap">
+        <img id="preview-img" src="" alt="">
+      </div>
+      <div id="preview-title"></div>
+      <div id="preview-actions"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="hidden"></div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
