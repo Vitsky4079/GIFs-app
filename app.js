@@ -22,7 +22,6 @@ const resultsGrid     = document.getElementById('results-grid');
 const localGrid       = document.getElementById('local-grid');
 const localStatus     = document.getElementById('local-status');
 const dropZone        = document.getElementById('drop-zone');
-const browseBtn       = document.getElementById('browse-btn');
 const fileInput       = document.getElementById('file-input');
 const settingsBtn     = document.getElementById('settings-btn');
 const settingsPanel   = document.getElementById('settings-panel');
@@ -632,7 +631,6 @@ function renderLocalGrid() {
 }
 
 // ── Browse button & file input ─────────────────────────────────────────────
-browseBtn.addEventListener('click', () => fileInput.click());
 fileInput.addEventListener('change', () => {
   if (fileInput.files.length) {
     importFiles(Array.from(fileInput.files));
